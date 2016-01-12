@@ -10,7 +10,10 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
-    @request = Request.new
+    @requests = @event.requests
+
+    @new_request = @event.requests.build
+
   end
 
   # GET /events/new
