@@ -1,0 +1,65 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Location name:</strong>
+  <%= @event.location_name %>
+</p>
+
+<p>
+  <strong>Suburb name:</strong>
+  <%= @event.suburb_name %>
+</p>
+
+<p>
+  <strong>Street name:</strong>
+  <%= @event.street_address %>
+</p>
+
+<p>
+  <strong>Activity date:</strong>
+  <%= @event.activity_date %>
+</p>
+
+<p>
+  <strong>Activity time:</strong>
+  <%= @event.activity_time %>
+</p>
+
+<p>
+  <strong>Is public:</strong>
+  <%= @event.is_public %>
+</p>
+
+<%= simple_form_for (@request) do |f| %>
+  <% if @request.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@request.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+      <% @request.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="field">
+    <%= f.input :name %>
+  </div>
+  <div class="field">
+    <%= f.input :number %>
+  </div>
+
+
+  <div class="action">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+
+<%= button_to 'Sign Me Up', event_request_path(@event) %>
+
+<p>
+  <%= link_to 'Edit', edit_event_path(@event) %> |
+  <%= link_to 'Back', events_path %>
+</p>
+

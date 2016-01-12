@@ -1,0 +1,29 @@
+<h1>New Event</h1>
+
+<%= simple_form_for (@event_request) do |f| %>
+  <% if @request.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@request.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+      <% @request.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="field">
+    <%= f.input :name %>
+  </div>
+  <div class="field">
+    <%= f.input :number %>
+  </div>
+
+
+  <div class="action">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', events_url %>
