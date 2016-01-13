@@ -9,7 +9,9 @@ class RequestsController < ApplicationController
 
 	def create
 
-		@request = Request.create(params.require(:request).permit(:name, :number, :event_id))
+		@event = Event.find(params[:event_id])
+		@request = @event.requests.create(params.require(:request).permit(:name, :number))
+		#@request = Request.create()
 
 		render :json => @request
 	end

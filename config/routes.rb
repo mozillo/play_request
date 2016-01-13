@@ -5,9 +5,6 @@ Rails.application.routes.draw do
     resources :requests
   end
 
-  resources :requests
-
-  
   root 'events#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
